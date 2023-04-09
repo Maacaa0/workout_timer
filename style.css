@@ -7,6 +7,10 @@
   --white: #ffffff;
 }
 
+html {
+  touch-action: manipulation;
+}
+
 * {
   box-sizing: border-box;
   color: var(--white)
