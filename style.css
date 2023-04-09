@@ -218,3 +218,19 @@ h3 {
 .settings-btn:hover {
   transform: scale(1.1);
 }
+
+@media (max-width:500px) {
+
+  body {
+    margin: 0;
+  }
+
+  main {
+    min-width: unset;
+    width: 100%;
+  }
+  section {
+    min-width: unset;
+    width: 100%;
+  }
+}
