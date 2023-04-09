@@ -7,10 +7,6 @@
   --white: #ffffff;
 }
 
-html {
-  touch-action: manipulation;
-}
-
 * {
   box-sizing: border-box;
   color: var(--white)
@@ -232,5 +228,21 @@ h3 {
   section {
     min-width: unset;
     width: 100%;
+  }
+}
+
+/* Disable double-tap zooming on Safari */
+@media only screen and (max-device-width: 736px) {
+  /* Replace 736px with your own device width */
+  /* The following code disables zooming on double-tap */
+  body {
+    touch-action: manipulation;
+  }
+  /* The following code re-enables zooming for pinch gestures */
+  /* You can adjust the zoom level to your preference */
+  body {
+    zoom: 1;
+    /* Adjust the zoom level as needed */
+    /* For example: zoom: 1.2; */
   }
 }
