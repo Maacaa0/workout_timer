@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Timer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <main id="main">
+        <h1>WORKOUT TIMER</h1>
+        
+        <h2>Settings <img class="settings_icon" src="images/setting.png" alt="#"></h2>
+
+        <div class="flex">
+            <p class="right_text">Preparation time</p>
+            <div class="time_container">
+                <button name="prep" class="time-btn decrement"></button>
+                <p class="left_text"><span id="prep"></span></p>
+                <button name="prep" class="time-btn increment"></button>
+            </div>
+        </div>
+
+        <div class="flex">
+            <p class="right_text">Workout time</p>
+            <div class="time_container">
+                <button name="workout" class="time-btn decrement"></button>
+                <p class="left_text"><span id="workout"></span></p>
+                <button name="workout" class="time-btn increment"></button>
+            </div>
+        </div>
+
+        <div class="flex">
+            <p class="right_text">Rest time</p>
+            <div class="time_container">
+                <button name="rest" class="time-btn decrement"></button>
+                <p class="left_text"><span id="rest"></span></p>
+                <button name="rest" class="time-btn increment"></button>
+            </div>
+        </div>
+
+        <div class="flex">
+            <p class="right_text">Number of reps</p>
+            <div class="time_container bit_to_the_left">
+                <button name="reps" class="time-btn decrement"></button>
+                <p class="left_text"><span id="reps"></span> reps</p>
+                <button name="reps" class="time-btn increment"></button>
+            </div>
+        </div>
+
+        <div class="flex">
+            <p class="right_text">Number of sets</p>
+            <div class="time_container bit_to_the_left">
+                <button name="sets" class="time-btn decrement"></button>
+                <p class="left_text"><span id="sets"></span> sets</p>
+                <button name="sets" class="time-btn increment"></button>
+            </div>
+        </div>
+
+        <button id="start" class="start">TIMER</div>
+            
+      </main>
+
+      <section id="counter">
+        <h3 id="phase">Get Ready!</h3>
+        <div class="progress-bar">
+            <progress id="progress-bar" value="0" min="0" max="100" style="visibility:hidden;height:0;width:0;"></progress>
+        </div>
+        <div class="grid">
+            <p class="remaining">Workout time remaining <br><span id="remainingWorkoutTime">1:30</span></p>
+            <p class="remaining">Round time remaining <br><span id="remainingRoundTime">20</span></p>
+            <p class="remaining">Sets remaining <br><span id="remainingSets">3</span></p>
+            <p class="remaining">Reps remaining <br><span id="remainingReps">2</span></p>
+            
+        </div>
+        <div class="btn-container">
+            <button id="startBtn" class="start-btn"></button>
+            <button id="pauseBtn" class="pause-btn"></button>
+            <button id="settingsBtn" class="settings-btn"></button>
+        </div>
+      </section>
+    
+</body>
+</html>
