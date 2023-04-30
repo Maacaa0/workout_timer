@@ -54,6 +54,13 @@ function secondsToMinutes(type) {
     return `${minutes > 0 ? `${minutes}:${seconds}m`: `${minutes}:${seconds}s`}`
 }
 
+function calcTime() {
+    let workCalc = (setup.workout * setup.reps) * setup.sets;
+    let restCalc = (setup.rest * setup.reps) * setup.sets - setup.rest * setup.sets;
+    let recoveryCalc = setup.recovery * setup.sets - setup.recovery;
+    return workCalc + restCalc + recoveryCalc + setup.prep;
+}
+
 function showSetup() {
     
     prep.textContent = secondsToMinutes(setup["prep"]);
@@ -62,7 +69,7 @@ function showSetup() {
     reps.textContent = setup["reps"];
     sets.textContent = setup["sets"];
     recovery.textContent = secondsToMinutes(setup["recovery"]);
-    remainingWorkoutTimeDisplay.innerHTML = secondsToMinutes(((setup["workout"] + setup["rest"]) * setup["reps"]) * setup["sets"] + setup["prep"] + setup["recovery"] * setup["sets"] - setup["recovery"]).slice(0, -1);
+    remainingWorkoutTimeDisplay.innerHTML = secondsToMinutes(calcTime()).slice(0, -1);
     remainingRoundTimeDisplay.innerHTML = secondsToMinutes(setup["prep"]).slice(0, -1);
     remainingRepsDisplay.innerHTML = setup["reps"];
     remainingSetsDisplay.innerHTML = setup["sets"];
@@ -103,33 +110,38 @@ function setValues() {
         repsRemaining = setup.reps;
         setsRemaining = setup.sets;
         timeRemaining = setup.prep;
-        remainingWorkoutTime = ((setup["workout"] + setup["rest"]) * setup["reps"]) * setup["sets"] + setup["prep"] + (setup["recovery"] * setup["sets"]) - setup["recovery"] - (setup["rest"] * setup["sets"]);
+        remainingWorkoutTime = calcTime()
     }
 }
 
+const completeSound = new Audio("audio/workout-complete.mp3");
+const workoutSound = new Audio("audio/workout.mp3");
+const restSound = new Audio("audio/rest.mp3");
+let beepSound = new Audio('audio/beep.mp3');
+let startBeepSound = new Audio('audio/start.mp3');
+let soundArr = [completeSound, workoutSound, restSound, beepSound, startBeepSound];
+
 let workoutPlay = true;
-const complete = new Audio("audio/workout-complete.mp3");
 let restPlay = true;
 function playSound() {
-	let beep = new Audio('audio/beep.mp3');
-    const workout = new Audio("audio/workout.mp3");
-    const rest = new Audio("audio/rest.mp3");
-    let startBeep = new Audio('audio/start.mp3');
+    soundArr.forEach(audio => audio.addEventListener('canplay', function() {
+        audio.play();
+    }))
     if (Math.floor(timeRemaining) > 0 && Math.floor(timeRemaining) < 4) {
-        beep.play()
+        beepSound.play()
     } else if (Math.floor(timeRemaining) === 0) {
-        startBeep.play();
+        startBeepSound.play();
     }
     
     if (currentPhase === "workout") {
         if (workoutPlay === true) {
-            workout.play();
+            workoutSound.play();
         }
         workoutPlay = false;
         restPlay = true;
     } else if (currentPhase === "rest") {
         if (restPlay === true) {
-            rest.play();
+            restSound.play();
         }
         restPlay = false;
         workoutPlay = true;
@@ -175,6 +187,7 @@ function startTimer() {
                         startedWorkout = "finished";
                         startBtn.disabled = true;
                         pauseBtn.disabled = true;
+                        setTimeout(()=> completeSound.play(), 2000);
                         setTimeout(function() {
                             window.location.reload();
                         },5000)
