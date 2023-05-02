@@ -124,9 +124,6 @@ let soundArr = [completeSound, workoutSound, restSound, beepSound, startBeepSoun
 let workoutPlay = true;
 let restPlay = true;
 function playSound() {
-    soundArr.forEach(audio => audio.addEventListener('canplay', function() {
-        audio.play();
-    }))
     if (Math.floor(timeRemaining) > 0 && Math.floor(timeRemaining) < 4) {
         beepSound.play()
     } else if (Math.floor(timeRemaining) === 0) {
@@ -265,6 +262,11 @@ startWorkout.addEventListener('click', function() {
     } else if (startedWorkout === "paused") {
         resumeTimer()
     } else {
+
+    soundArr.forEach(audio => audio.addEventListener('canplay', function() {
+        audio.play();
+    }));
+
         startTimer()
     }
 })
