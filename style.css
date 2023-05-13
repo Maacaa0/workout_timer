@@ -429,6 +429,18 @@ h4 {
   font-weight: 700;
 }
 
+@media (min-width: 1000px) {
+  .selection {
+    max-width: 30rem;
+    margin: 0 auto;
+  }
+
+  .sounds-toggle {
+    margin: 1rem auto;
+    display: block;
+  }
+}
+
 
 /* Disable double-tap zooming on Safari */
 @media only screen and (max-device-width: 736px) {
