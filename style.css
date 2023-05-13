@@ -233,6 +233,7 @@ section {
   position: relative;
   display: none;
   width: 100%;
+  min-height: 100vh;
   /* min-width: 30rem; */
   background: var(--mainBg) ;
 
