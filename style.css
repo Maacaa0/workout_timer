@@ -310,8 +310,25 @@ h3 {
 }
 
 .start-btn:hover,
-.pause-btn:hover {
+.pause-btn:hover,
+#start:hover {
   background: var(--iconDarker);
+}
+
+#start {
+  transition: 150ms ease;
+}
+
+.proceed-play {
+  color: var(--iconDarker);
+}
+
+#start:hover {
+  font-size: 1.7rem;
+}
+
+#start:hover .proceed-play{
+  color: var(--compBg);
 }
 
 .start-btn:hover .fa-play,
@@ -348,21 +365,6 @@ h3 {
   font-size: 2.2rem;
 }
 
-@media (max-width:500px) {
-
-  body {
-    margin: 0;
-  }
-
-  main {
-    min-width: unset;
-    width: 100%;
-  }
-  section {
-    min-width: unset;
-    width: 100%;
-  }
-}
 
 .complete_container {
   position: fixed;
