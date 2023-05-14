@@ -41,7 +41,7 @@ h1 {
 .fa-dumbbell {
   width: 100%;
   text-align: center;
-  font-size: 7.5rem;
+  font-size: 11rem;
   color: var(--compBg);
   margin-top: .8rem;
 }
@@ -288,7 +288,7 @@ h3 {
 
 .flex {
   display: block;
-  width: fit-content;
+  width: 17rem;
   margin: 3rem auto;
   /* margin-top: 3rem; */
 }
