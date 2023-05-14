@@ -24,7 +24,7 @@ body {
 main {
   width: 100%;
   min-width: 25rem;
-  min-height: 100vh;
+  min-height: 100dvh;
   background: var(--mainBg);
   padding: 1rem 1.5rem;
 }
@@ -233,8 +233,7 @@ section {
   position: relative;
   display: none;
   width: 100%;
-  min-height: 100vh;
-  /* min-width: 30rem; */
+  min-height: 100dvh;
   background: var(--mainBg) ;
 
   padding: 2rem;
