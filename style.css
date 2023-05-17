@@ -24,7 +24,7 @@ body {
 main {
   width: 100%;
   min-width: 25rem;
-  min-height: 100dvh;
+  min-height: 100vh;
   background: var(--mainBg);
   padding: 1rem 1.5rem;
 }
@@ -152,8 +152,8 @@ button:disabled {
 .selection-container-bottom {
   transition: 600ms ease;
   max-height: 0;
-  padding: 1rem 1.5rem -1rem 1.5rem;
-  overflow-y: auto;
+  padding: 0;
+  overflow-y: hidden;
 }
 
 .selection {
