@@ -139,6 +139,8 @@ function secondsToMinutes(seconds) {
   const restSound = new Audio("audio/rest.mp3");
   const beepSound = new Audio("audio/Beep-1.mp3");
   const startBeepSound = new Audio("audio/Beep-3.mp3");
+
+  const blankVid = document.getElementById("blankVid");
   
   let workoutPlay = true;
   let restPlay = true;
@@ -172,7 +174,7 @@ function secondsToMinutes(seconds) {
   function startTimer() {
     setValues();
     startedWorkout = "started";
-  
+    blankVid.play()
     const phaseDisplay = document.getElementById("phase");
     const progressDiv = document.querySelector(".progress-bar");
   
@@ -206,6 +208,7 @@ function secondsToMinutes(seconds) {
               startedWorkout = "finished";
               startBtn.disabled = true;
               pauseBtn.disabled = true;
+              blankVid.pause();
   
               setTimeout(function() {
                 if (toggleSound) {
@@ -294,6 +297,8 @@ function proceed() {
     startBeepSound.pause();
     completeSound.play();
     completeSound.pause();
+    blankVid.play();
+    blankVid.pause();
 }
 
 
@@ -314,15 +319,3 @@ pauseWorkout.addEventListener('click', pauseTimer);
 settingsBtn.addEventListener('click', function() {
     window.location.reload();
 });
-
-
-import noSleep from "nosleep.js";
-
-var noSleep = new NoSleep();
-
-// Enable wake lock.
-// (must be wrapped in a user input event handler e.g. a mouse or touch handler)
-document.addEventListener('click', function enableNoSleep() {
-  document.removeEventListener('click', enableNoSleep, false);
-  noSleep.enable();
-}, false);
