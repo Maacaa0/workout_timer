@@ -4,7 +4,7 @@ const rest = document.getElementById("rest");
 const reps = document.getElementById("reps");
 const sets = document.getElementById("sets");
 
-const remainingTime = document.getElementById("remaining");
+// const remainingTime = document.getElementById("remaining");
 
 const timerMenu = document.getElementById("main");
 const counter = document.getElementById("counter");
@@ -314,3 +314,15 @@ pauseWorkout.addEventListener('click', pauseTimer);
 settingsBtn.addEventListener('click', function() {
     window.location.reload();
 });
+
+
+import noSleep from "nosleep.js";
+
+var noSleep = new NoSleep();
+
+// Enable wake lock.
+// (must be wrapped in a user input event handler e.g. a mouse or touch handler)
+document.addEventListener('click', function enableNoSleep() {
+  document.removeEventListener('click', enableNoSleep, false);
+  noSleep.enable();
+}, false);
