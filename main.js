@@ -174,7 +174,7 @@ function secondsToMinutes(seconds) {
   function startTimer() {
     setValues();
     startedWorkout = "started";
-    // blankVid.play()
+    blankVid.play()
     const phaseDisplay = document.getElementById("phase");
     const progressDiv = document.querySelector(".progress-bar");
   
@@ -208,7 +208,7 @@ function secondsToMinutes(seconds) {
               startedWorkout = "finished";
               startBtn.disabled = true;
               pauseBtn.disabled = true;
-              // blankVid.pause();
+              blankVid.pause();
   
               setTimeout(function() {
                 if (toggleSound) {
