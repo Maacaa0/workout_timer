@@ -140,12 +140,13 @@ function secondsToMinutes(seconds) {
   const beepSound = new Audio("audio/Beep-1.mp3");
   const startBeepSound = new Audio("audio/Beep-3.mp3");
 
-  const blankVid = document.getElementById("blankVid");
+  const blankSound = new Audio("audio/blank.mp3");
   
   let workoutPlay = true;
   let restPlay = true;
   
   function playSound() {
+    blankSound.play()
     if (toggleSound) {
       const secondsRemaining = Math.floor(timeRemaining);
       
@@ -174,7 +175,6 @@ function secondsToMinutes(seconds) {
   function startTimer() {
     setValues();
     startedWorkout = "started";
-    blankVid.play()
     const phaseDisplay = document.getElementById("phase");
     const progressDiv = document.querySelector(".progress-bar");
   
@@ -185,7 +185,7 @@ function secondsToMinutes(seconds) {
       progressDiv.style.background = `radial-gradient(closest-side, var(--textDarker) 95%, transparent 80% 100%),
         conic-gradient(var(--iconDarker) ${progressBar.value}%, var(--compBg) 0)`;
       playSound();
-  
+      
       if (timeRemaining <= 0) {
         if (currentPhase === "prep" || currentPhase === "rest") {
           currentPhase = "workout";
@@ -208,7 +208,6 @@ function secondsToMinutes(seconds) {
               startedWorkout = "finished";
               startBtn.disabled = true;
               pauseBtn.disabled = true;
-              blankVid.pause();
   
               setTimeout(function() {
                 if (toggleSound) {
@@ -297,8 +296,8 @@ function proceed() {
     startBeepSound.pause();
     completeSound.play();
     completeSound.pause();
-    blankVid.play();
-    blankVid.pause();
+    blankSound.play();
+    blankSound.pause()
 }
 
 
