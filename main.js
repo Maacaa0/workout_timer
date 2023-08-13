@@ -146,10 +146,12 @@ function secondsToMinutes(seconds) {
   let restPlay = true;
   
   function playSound() {
-    blankSound.play()
     if (toggleSound) {
       const secondsRemaining = Math.floor(timeRemaining);
-      
+      if (secondsRemaining % 26 === 25) {
+        blankSound.play()
+      }
+
       if (secondsRemaining > 0 && secondsRemaining < 4) {
         beepSound.play();
       } else if (secondsRemaining === 0) {
