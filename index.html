@@ -3,84 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workout Timer</title>
     <link rel="stylesheet" href="style.css">
-    <script src="main.js" defer></script>
+
 </head>
 <body>
     <main id="main">
         <h1>WORKOUT TIMER</h1>
+
+        <i class="fa-solid fa-dumbbell"></i>
+
+    <div class="absolute">
+        <button id="start" class="start">PROCEED <i class="fa-solid fa-play proceed-play"></i></button>
+        <button id="toggleSettings" class="toggle-selection-container-btn">settings <i id="chevronUp" class="fa-solid fa-chevron-up"></i></button>
+        <div class="selection-container">
+            <div class="selection-container_top">
+                <i class="fa-solid fa-gear"></i>
+                <p class="selection-container_top_text">your workout setup</p>
+            </div>
+
+            <hr class="hr_divider">
+
+            <div id="settings" class="selection-container-bottom">
+                <button id="soundsToggle" class="sounds-toggle"><i id="soundIcon" class="fa-solid fa-volume-high"></i></button>
+
+                <div class="selection">
+                    <p class="left_text">preparation</p>
+                    <div class="time_container">
+                        <button name="prep" class="time-btn decrement"><i class="fa-regular fa-square-minus"></i></button>
+                        <p class="right_text"><span id="prep"></span></p>
+                        <button name="prep" class="time-btn increment"><i class="fa-regular fa-square-plus"></i></button>
+                    </div>
+                </div>
+
+                <div class="selection">
+                    <p class="left_text">workout</p>
+                    <div class="time_container">
+                        <button name="workout" class="time-btn decrement"><i class="fa-regular fa-square-minus"></i></button>
+                        <p class="right_text"><span id="workout"></span></p>
+                        <button name="workout" class="time-btn increment"><i class="fa-regular fa-square-plus"></i></button>
+                    </div>
+                </div>
+
+                <div class="selection">
+                    <p class="left_text">rest</p>
+                    <div class="time_container">
+                        <button name="rest" class="time-btn decrement"><i class="fa-regular fa-square-minus"></i></button>
+                        <p class="right_text"><span id="rest"></span></p>
+                        <button name="rest" class="time-btn increment"><i class="fa-regular fa-square-plus"></i></button>
+                    </div>
+                </div>
+
+                <div class="selection">
+                    <p class="left_text">recovery</p>
+                    <div class="time_container">
+                        <button name="recovery" class="time-btn decrement"><i class="fa-regular fa-square-minus"></i></button>
+                        <p class="right_text"><span id="recovery"></span> </p>
+                        <button name="recovery" class="time-btn increment"><i class="fa-regular fa-square-plus"></i></button>
+                    </div>
+                </div>
+
+                <div class="selection">
+                    <p class="left_text">excercises</p>
+                    <div class="time_container">
+                        <button name="reps" class="time-btn decrement"><i class="fa-regular fa-square-minus"></i></button>
+                        <p class="right_text"><span id="reps"></span></p>
+                        <button name="reps" class="time-btn increment"><i class="fa-regular fa-square-plus"></i></button>
+                    </div>
+                </div>
+
+                <div class="selection">
+                    <p class="left_text">sets</p>
+                    <div class="time_container">
+                        <button name="sets" class="time-btn decrement"><i class="fa-regular fa-square-minus"></i></button>
+                        <p class="right_text"><span id="sets"></span></p>
+                        <button name="sets" class="time-btn increment"><i class="fa-regular fa-square-plus"></i></button>
+                    </div>
+                </div>
+                </div>
+        </div>
+    </div>
         
-        <h2>Settings <img class="settings_icon" src="images/setting.png" alt="#"></h2>
-
-        <div class="flex">
-            <p class="right_text">Preparation time</p>
-            <div class="time_container">
-                <button name="prep" class="time-btn decrement"></button>
-                <p class="left_text"><span id="prep"></span></p>
-                <button name="prep" class="time-btn increment"></button>
-            </div>
-        </div>
-
-        <div class="flex">
-            <p class="right_text">Workout time</p>
-            <div class="time_container">
-                <button name="workout" class="time-btn decrement"></button>
-                <p class="left_text"><span id="workout"></span></p>
-                <button name="workout" class="time-btn increment"></button>
-            </div>
-        </div>
-
-        <div class="flex">
-            <p class="right_text">Rest time</p>
-            <div class="time_container">
-                <button name="rest" class="time-btn decrement"></button>
-                <p class="left_text"><span id="rest"></span></p>
-                <button name="rest" class="time-btn increment"></button>
-            </div>
-        </div>
-
-        <div class="flex">
-            <p class="right_text">Number of reps</p>
-            <div class="time_container bit_to_the_left">
-                <button name="reps" class="time-btn decrement"></button>
-                <p class="left_text"><span id="reps"></span> reps</p>
-                <button name="reps" class="time-btn increment"></button>
-            </div>
-        </div>
-
-        <div class="flex">
-            <p class="right_text">Number of sets</p>
-            <div class="time_container bit_to_the_left">
-                <button name="sets" class="time-btn decrement"></button>
-                <p class="left_text"><span id="sets"></span> sets</p>
-                <button name="sets" class="time-btn increment"></button>
-            </div>
-        </div>
-
-        <button id="start" class="start">TIMER</div>
+        
             
       </main>
 
       <section id="counter">
         <h3 id="phase">Get Ready!</h3>
         <div class="progress-bar">
-            <progress id="progress-bar" value="0" min="0" max="100" style="visibility:hidden;height:0;width:0;"></progress>
+            <p class="remainingRoundTime">round time <br><span id="remainingRoundTime">20</span></p>
+            <progress id="progress-bar" value="0" min="0" max="360" style="visibility:hidden;height:0;width:0;"></progress>
         </div>
-        <div class="grid">
-            <p class="remaining">Workout time remaining <br><span id="remainingWorkoutTime">1:30</span></p>
-            <p class="remaining">Round time remaining <br><span id="remainingRoundTime">20</span></p>
-            <p class="remaining">Sets remaining <br><span id="remainingSets">3</span></p>
-            <p class="remaining">Reps remaining <br><span id="remainingReps">2</span></p>
+        <div class="flex">
+            <p class="remaining">TIME REMAINING<span class="right_text_span"  id="remainingWorkoutTime">1:30</span></p>
+            <p class="remaining">REPS REMAINING<span class="right_text_span"  id="remainingReps">2</span></p>
+            <p class="remaining">SETS REMAINING<span class="right_text_span"  id="remainingSets">3</span></p>
             
         </div>
+        <div id="paused" class="paused">workout paused!</div>
         <div class="btn-container">
-            <button id="startBtn" class="start-btn"></button>
-            <button id="pauseBtn" class="pause-btn"></button>
-            <button id="settingsBtn" class="settings-btn"></button>
+            <button id="startBtn" class="start-btn"><i class="fa-solid fa-play"></i></button>
+            <button id="pauseBtn" class="pause-btn"><i class="fa-solid fa-pause"></i></button>
+            <button id="settingsBtn" class="settings-btn"><i class="fa-solid fa-chevron-left"></i></button>
         </div>
       </section>
-    
+
+      
+
+        <!-- <div id="workoutComplete" class="complete_container">
+            <div class="complete">
+                <h4>Congratulations</h4>
+                <p class="complete_text">workout complete</p>
+                <p class="complete_total">workout time: <span   id="totalTime"></span></p>
+                <button id="backToMenu">back to menu </button>
+            </div>
+        </div> -->
+        <script src="https://kit.fontawesome.com/e02d150246.js" crossorigin="anonymous"></script>
+        <script src="main.js"></script>
+        <script src="NoSleep.min.js"></script>
 </body>
 </html>
