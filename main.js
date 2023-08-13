@@ -146,12 +146,16 @@ function secondsToMinutes(seconds) {
   let restPlay = true;
   
   function playSound() {
-    if (toggleSound) {
-      const secondsRemaining = Math.floor(timeRemaining);
-      if (secondsRemaining % 26 === 25) {
-        blankSound.play()
-      }
+    const secondsRemaining = Math.floor(timeRemaining);
 
+    // PLAY BLANK SOUND FILE TO KEEP SCREEN ON after selected seconds below
+    const restoreDisplayAfter = 30
+    if (secondsRemaining % restoreDisplayAfter + 1 === restoreDisplayAfter) {
+      blankSound.play()
+      blankSound.pause()
+    }
+
+    if (toggleSound) {
       if (secondsRemaining > 0 && secondsRemaining < 4) {
         beepSound.play();
       } else if (secondsRemaining === 0) {
