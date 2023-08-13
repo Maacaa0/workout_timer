@@ -147,14 +147,13 @@ function secondsToMinutes(seconds) {
   
   function playSound() {
     const secondsRemaining = Math.floor(timeRemaining);
-
+    
     // PLAY BLANK SOUND FILE TO KEEP SCREEN ON after selected seconds below
     const restoreDisplayAfter = 30
     if (secondsRemaining % restoreDisplayAfter + 1 === restoreDisplayAfter) {
       blankSound.play()
-      blankSound.pause()
     }
-
+    
     if (toggleSound) {
       if (secondsRemaining > 0 && secondsRemaining < 4) {
         beepSound.play();
