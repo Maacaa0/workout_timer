@@ -22,7 +22,7 @@ body {
 
 main {
   width: 100%;
-  min-width: 25rem;
+  min-width: 20rem;
   min-height: 100vh;
   background: var(--mainBg);
   padding: 1rem 1.5rem;
@@ -516,6 +516,16 @@ h4 {
   .selection, .sound_saved_wrapper {
     max-width: 30rem;
     margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  h4 {
+    font-size: 1.3rem;
+  }
+
+  li {
+    font-size: 1.1rem;
   }
 }
 
