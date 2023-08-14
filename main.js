@@ -1,29 +1,134 @@
-const prep = document.getElementById("prep");
-const workout = document.getElementById("workout");
-const rest = document.getElementById("rest");
-const reps = document.getElementById("reps");
-const sets = document.getElementById("sets");
+const prep = document.getElementById("prep")
+const workout = document.getElementById("workout")
+const rest = document.getElementById("rest")
+const reps = document.getElementById("reps")
+const sets = document.getElementById("sets")
 
-// const remainingTime = document.getElementById("remaining");
+const timerMenu = document.getElementById("main")
+const counter = document.getElementById("counter")
 
-const timerMenu = document.getElementById("main");
-const counter = document.getElementById("counter");
+const decrementBtns = document.querySelectorAll(".decrement")
+const incrementBtns = document.querySelectorAll(".increment")
+const proceedBtn = document.getElementById("start")
+const progressBar = document.getElementById("progress-bar")
+const remainingWorkoutTimeDisplay = document.getElementById("remainingWorkoutTime")
+const remainingRoundTimeDisplay = document.getElementById("remainingRoundTime")
+const remainingRepsDisplay = document.getElementById("remainingReps")
+const remainingSetsDisplay = document.getElementById("remainingSets")
 
-const decrementBtns = document.querySelectorAll(".decrement");
-const incrementBtns = document.querySelectorAll(".increment");
-const proceedBtn = document.getElementById("start");
-const progressBar = document.getElementById("progress-bar");
-const remainingWorkoutTimeDisplay = document.getElementById("remainingWorkoutTime");
-const remainingRoundTimeDisplay = document.getElementById("remainingRoundTime");
-const remainingRepsDisplay = document.getElementById("remainingReps");
-const remainingSetsDisplay = document.getElementById("remainingSets");
+const toggleSettings = document.getElementById("toggleSettings")
+const settingsCard = document.getElementById("settings")
+const chevronUp = document.getElementById("chevronUp")
+const toggleSoundBtn = document.getElementById("soundsToggle")
+const soundIcon = document.getElementById("soundIcon")
+const paused = document.getElementById("paused")
 
-const toggleSettings = document.getElementById("toggleSettings");
-const settingsCard = document.getElementById("settings");
-const chevronUp = document.getElementById("chevronUp");
-const toggleSoundBtn = document.getElementById("soundsToggle");
-const soundIcon = document.getElementById("soundIcon");
-const paused = document.getElementById("paused");
+const savedWorkouts = document.getElementById("savedWorkouts")
+const closeSavedWorkouts = document.getElementById("closeSaved")
+const savedWorkoutsContainer = document.querySelector(".saved_workout_container")
+const saveBtn = document.getElementById("saveBtn")
+const addSavedWorkoutsHere = document.getElementById("addSavedWorkoutsHere")
+const workoutNameBox = document.getElementById("workoutName")
+const premadeBtn = document.getElementById("premadeBtn")
+
+savedWorkouts.addEventListener("click", () => {
+  savedWorkoutsContainer.classList.toggle("saved_shown")
+})
+
+closeSavedWorkouts.addEventListener("click", () => {
+  savedWorkoutsContainer.classList.remove("saved_shown")
+})
+
+saveBtn.addEventListener("click", saveToStorage)
+premadeBtn.addEventListener("click", addPremadeWorkouts)
+let workoutArr = JSON.parse(localStorage.getItem("savedWorkouts")) || []
+showSavedWorkouts()
+
+
+
+function addPremadeWorkouts() {
+  premadeBtn.style.display = "none"
+  workoutArr.push({"Six pack maker":{"prep":5,"workout":30,"rest":30,"reps":3,"sets":4,"recovery":70}},{"Tabata":{"prep":15,"workout":25,"rest":20,"reps":4,"sets":3,"recovery":30}},{"Easy Tabata":{"prep":15,"workout":25,"rest":20,"reps":4,"sets":3,"recovery":30}})
+  showSavedWorkouts()
+
+}
+
+function showSavedWorkouts() {
+//fuction to render saved workouts into an unordered list (if there are any to render)
+  while (addSavedWorkoutsHere.firstChild) {
+    addSavedWorkoutsHere.firstChild.remove()
+}
+
+  if (workoutArr.length > 0) {
+    workoutArr.map((workout, index) => {
+      const newListItem = document.createElement("li")
+      newListItem.textContent = Object.keys(workout)[0]
+      newListItem.key = index
+      newListItem.addEventListener("click", selectWorkout)
+
+      const deleteListItem = document.createElement("i")
+      deleteListItem.className = "fa-solid fa-trash-can"
+
+      deleteListItem.addEventListener("click", deleteSavedWorkout)
+
+      newListItem.appendChild(deleteListItem)
+
+      addSavedWorkoutsHere.appendChild(newListItem)
+    })
+  } else {
+    addSavedWorkoutsHere.innerHTML = "<li>You have no saved workouts!</li>"
+  }
+
+}
+
+function selectWorkout(event) {
+  if (!event.target.classList.contains("fa-trash-can")) {
+    const selectedWorkout = event.target.key
+    const selectedWorkoutName = Object.keys(workoutArr[selectedWorkout])[0]
+    workoutNameBox.textContent = selectedWorkoutName.toUpperCase()
+  
+    setup = workoutArr[selectedWorkout][selectedWorkoutName]
+    showSetup()
+
+    savedWorkoutsContainer.classList.remove("saved_shown")
+  }
+
+
+
+}
+
+function deleteSavedWorkout(event) {
+  const elementToRemove = event.target.parentElement.key
+        workoutArr.splice(elementToRemove, 1)
+        localStorage.setItem("savedWorkouts", JSON.stringify(workoutArr))
+        showSavedWorkouts()
+}
+
+function saveToStorage() {
+  const workoutName = prompt("select workout name")
+  
+  if (workoutName) {
+    workoutArr.push({[workoutName]: setup})
+    console.log(workoutArr)
+  
+    
+    localStorage.setItem("savedWorkouts", JSON.stringify(workoutArr))
+    showSavedWorkouts()
+    workoutNameBox.textContent = workoutName.toUpperCase()
+  }
+}
+
+document.addEventListener('click', event => {
+  const isClickInside = savedWorkoutsContainer.contains(event.target);
+  const btnClick = savedWorkouts.contains(event.target);
+  if (btnClick || event.target.classList.contains("fa-trash-can")) {
+      return
+
+  } else if (!isClickInside) {
+    savedWorkoutsContainer.classList.remove("saved_shown");
+  }
+});
+
 
 toggleSettings.addEventListener("click", ()=> {
     settingsCard.classList.toggle("shown");
@@ -36,7 +141,7 @@ toggleSoundBtn.addEventListener("click", ()=> {
     toggleSound ? soundIcon.classList = "fa-solid fa-volume-high" : soundIcon.classList = "fa-solid fa-volume-xmark"
 })
 
-const setup = {
+let setup = {
     prep: 10,
     workout: 30,
     rest: 15,

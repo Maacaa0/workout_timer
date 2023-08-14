@@ -9,24 +9,42 @@
 
 </head>
 <body>
+    <div class="saved_workout_container">
+        <h4>SAVED WORKOUTS</h4>
+        <i id="closeSaved" class="fa-solid fa-x" style="color: #dee9e9;"></i>
+        <ul id="addSavedWorkoutsHere">
+        </ul>
+        <small id="premadeBtn" class="premade_workouts">some premade workouts :)</small>
+    </div>
     <main id="main">
         <h1>WORKOUT TIMER</h1>
 
         <i class="fa-solid fa-dumbbell"></i>
 
-    <div class="absolute">
+        <div class="absolute">
         <button id="start" class="start">PROCEED <i class="fa-solid fa-play proceed-play"></i></button>
         <button id="toggleSettings" class="toggle-selection-container-btn">settings <i id="chevronUp" class="fa-solid fa-chevron-up"></i></button>
         <div class="selection-container">
-            <div class="selection-container_top">
-                <i class="fa-solid fa-gear"></i>
-                <p class="selection-container_top_text">your workout setup</p>
+            <div class="selection-container_top"> 
+                    <i class="fa-solid fa-gear"></i>
+                    <p class="selection-container_top_text">workout setup</p>
             </div>
+
 
             <hr class="hr_divider">
 
             <div id="settings" class="selection-container-bottom">
-                <button id="soundsToggle" class="sounds-toggle"><i id="soundIcon" class="fa-solid fa-volume-high"></i></button>
+                <div class="sound_saved_wrapper">
+                    <button id="soundsToggle" class="sounds-toggle"><i id="soundIcon" class="fa-solid fa-volume-high"></i></button>
+
+                    <div class="selection-container_saved">
+                        <button id="savedWorkouts" class="saved_workouts">
+                            SAVED WORKOUTS
+                        </button>
+                    </div>
+                </div>
+
+                <h5 id="workoutName">DEFAULT WORKOUT</h5>
 
                 <div class="selection">
                     <p class="left_text">preparation</p>
@@ -81,13 +99,13 @@
                         <button name="sets" class="time-btn increment"><i class="fa-regular fa-square-plus"></i></button>
                     </div>
                 </div>
-                </div>
+
+                <button id="saveBtn" class="save_btn">SAVE SETUP</button>
+
+            </div>
         </div>
-    </div>
-        
-        
-            
-      </main>
+        </div>          
+    </main>
 
       <section id="counter">
         <h3 id="phase">Get Ready!</h3>
