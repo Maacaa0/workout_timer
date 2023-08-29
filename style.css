@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;600;700&display=swap');
 :root {
-  --mainBg: #666666;
-  --compBg: #CCCCCC;
-  --mainText: #ad8801;
-  --textDarker: #4D4D4D;
-  --iconDarker: #333333;
+  --mainBg: #3d0606;
+
+  --mainBgLight: #3d06068a;
+
+  --black: #000000 ;
   --white: #ffffff;
+
 }
 
 * {
@@ -34,18 +35,21 @@ h1 {
   font-size: 2.25em;
   font-weight: 600;
   margin: 0;
-  color: var(--compBg);
+  color: var(--white);
 }
 
 h5 {
+  color: var(--white);
   font-size: 1rem;
   text-align: center;
+  text-decoration: overline;
 }
 
 ul {
   padding: 0;
   margin-top: 2rem;
   list-style: none;
+  ;
 }
 
 li {
@@ -61,7 +65,7 @@ li {
 }
 
 li:hover {
-  color: rgb(95, 237, 237);
+  color: rgb(255 55 55);
 }
 
 .fa-x {
@@ -93,7 +97,7 @@ li:hover {
   width: 100%;
   text-align: center;
   font-size: 11rem;
-  color: var(--compBg);
+  color: var(--white);
   margin-top: .8rem;
 }
 
@@ -106,17 +110,15 @@ li:hover {
   font-size: 1.4rem;
   font-weight: 400;
   background: var(--compBg);
-  color: var(--iconDarker);
+  color: var(--white);
   border-radius: 5px;
   border: 1px solid;
 }
 
-.fa-play {
-  color: var(--iconDarker);
-  font-size: 2rem;
-  vertical-align: bottom;
-  margin-left: .4rem;
+.start:hover {
+  color: var(--black)
 }
+
 
 h2 {
   text-align: center;
@@ -134,47 +136,46 @@ button:disabled {
 
 .absolute {
   position: fixed;
-    width: 100%;
-    margin: 0 auto;
-    bottom: 0;
-    left: 0;
+  width: 100%;
+  margin: 0 auto;
+  bottom: 0;
+  left: 0;
 }
 
 .toggle-selection-container-btn {
   position: relative;
+  z-index: 50;
   top: 1px;
   margin: 0 auto;
   margin-top: 2rem;
   display: block;
-  background: var(--compBg);
-  color: var(--textDarker);
-  border-left: 1px solid var(--textDarker);
-  border-right: 1px solid var(--textDarker);
-  border-bottom: 1px solid var(--textDarker);
+  background: var(--mainBgLight);
+  color: var(--white);
+  border: none;
+  border-left: 1px solid var(--white);
+  border-right: 1px solid var(--white);
+  border-top: 1px solid var(--white);
   border-radius: 5px 5px 0 0;
-  padding: 0.3rem 1.5rem;
+  padding: 0.6rem 3rem;
 }
 
 .fa-chevron-up, .fa-chevron-down {
-  color: var(--iconDarker);
+  color: var(--white);
   margin-left: .5rem;
   vertical-align: bottom;
   transition: 150ms ease;
 }
 
 .fa-gear {
-  color: var(--iconDarker);
+  color: var(--white);
   font-size: 1.7rem;
 }
 
 .selection-container {
   position: relative;
   overflow: hidden;
-  background: var(--compBg);
-  border-radius: 5px;
-  border-left: 1px solid var(--textDarker);
-  border-right: 1px solid var(--textDarker);
-  border-bottom: 1px solid var(--textDarker);
+  background: var(--mainBgLight);
+
 }
 
 .selection-container_top {
@@ -182,33 +183,30 @@ button:disabled {
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  margin-top: 0.8rem;
+  padding: 1rem;
+  border: 1px solid white;
 }
 
 .selection-container_top_text {
   font-weight: 600;
-  color: var(--textDarker);
-}
-
-.hr_divider {
-  margin-top: 1rem;
-  width: calc(100% + 5rem);
-  position: relative;
-  left: -3rem;
-  border: 1px solid var(--textDarker);
-  opacity: .5;
+  color: var(--white);
 }
 
 .sound_saved_wrapper {
   max-width: 30rem;
-    margin: 0 auto;
+  margin: 0 auto;
 }
 
 .selection-container-bottom {
+  background-color: var(--compBg);
   transition: 600ms ease;
   max-height: 0;
   padding: 0;
   overflow-y: hidden;
+  -webkit-transition: 600ms ease;
+  -moz-transition: 600ms ease;
+  -ms-transition: 600ms ease;
+  -o-transition: 600ms ease;
 }
 
 .selection, .sound_saved_wrapper {
@@ -219,8 +217,9 @@ button:disabled {
 
 
 .shown {
+  background: var(--mainBgLight);
   max-height: 20rem;
-  padding: 1rem 1.5rem 1rem 1.5rem;
+  padding: 1rem 1.5rem;
 }
 
 .sounds-toggle {
@@ -230,12 +229,18 @@ button:disabled {
 }
 
 .fa-volume-high, .fa-volume-xmark {
-  color: var(--iconDarker);
+  color: var(--white);
   font-size: 1.4rem;
 }
 
 .saved_workouts {
   font-weight: 600;
+  background: var(--mainBg);
+  color: var(--white);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: 1px solid white;
 }
 
 .saved_workout_container {
@@ -244,14 +249,15 @@ button:disabled {
   z-index: -10;
   opacity: 0;
   top: 2rem;
-  background: #1c1a1a;
+  background: var(--mainBg);
+  border: var(--white) 1px solid;
   border-radius: 1rem;
   width: 80%;
   height: auto;
   max-height: 80%;
   overflow-y: auto;
   padding: 2rem;
-  color: azure;
+  color: var(--white);
   font-size: 1.4rem;
   transition: 150ms ease-in-out;
   -webkit-transition: 150ms ease-in-out;
@@ -263,7 +269,7 @@ button:disabled {
 }
 
 .saved_shown {
-  opacity: .9;
+  opacity: 1;
   z-index: 10;
 }
 
@@ -294,20 +300,20 @@ button:disabled {
 .left_text {
   font-size: 1.2rem;
   letter-spacing: 1.2px;
-  color: var(--textDarker);
+  color: var(--white);
   font-weight: 300;
 }
 
 .right_text {
   font-size: 1.2rem;
-  color: var(--iconDarker);
+  color: var(--white);
   text-align: center;
   display: block;
   width: 3.5rem;
 }
 
 .fa-square-plus, .fa-square-minus {
-  color: var(--iconDarker);
+  color: var(--white);
   opacity: .5;
   font-size: .9rem;
 }
@@ -341,20 +347,18 @@ button:disabled {
 .save_btn {
   display: block;
   margin: auto;
-  padding: .3rem;
-  transition: 150ms ease-in;
-  -webkit-transition: 150ms ease-in;
-  -moz-transition: 150ms ease-in;
-  -ms-transition: 150ms ease-in;
-  -o-transition: 150ms ease-in;
+  font-weight: 600;
+  background: var(--mainBg);
+  color: var(--white);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: 1px solid white;
 }
 
 .save_btn:hover {
   font-weight: 700;
 }
-
-
-
 
 section {
   position: relative;
@@ -364,10 +368,13 @@ section {
   background: var(--mainBg) ;
 
   padding: 2rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 h3 {
-  color: var(--compBg);
+  color: var(--white);
   font-size: 2.5rem;
   font-weight: 600;
   text-align: center;
@@ -384,8 +391,8 @@ h3 {
   height: 250px;
   border-radius: 50%;
   background: 
-  radial-gradient(closest-side, var(--textDarker) 95%, transparent 80% 100%),
-  conic-gradient(var(--compBg) 0%, var(--compBg) 0);
+  radial-gradient(closest-side, var(--mainBg) 80%, transparent 81% 100%),
+  conic-gradient(var(--white) 0%, var(--white) 0);
   position: relative;
 }
 
@@ -395,11 +402,11 @@ h3 {
   top: 5rem;
   text-align: center;
   font-size: 1.7rem;
-  color: var(--compBg);
+  color: var(--white);
 }
 
 #remainingRoundTime {
-  color: var(--compBg);
+  color: var(--white);
 
 }
 
@@ -416,65 +423,56 @@ h3 {
   display: block;
   width: 17rem;
   margin: 3rem auto;
-  /* margin-top: 3rem; */
 }
 
 
 .btn-container {
   display: flex;
   justify-content: center;
-  gap: .5rem;
+  gap: 3rem;
+  background: var(--white);
+  border-radius: 1rem;
+  overflow: hidden;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
 }
 
 .start-btn,
 .pause-btn {
   width: 5rem;
   height: 4rem;
-  border-radius: 10%;
   border: none;
-  background: var(--compBg);
+  background: none;
   transition: 150ms ease;
+  font-size: 2rem;
+  color: var(--black);
 }
 
 .start-btn:hover,
 .pause-btn:hover,
 #start:hover {
-  background: var(--iconDarker);
+  background: var(--white);
   color: var(--compBg);
 }
 
 #start {
   transition: 150ms ease;
+  -webkit-transition: 150ms ease;
+  -moz-transition: 150ms ease;
+  -ms-transition: 150ms ease;
+  -o-transition: 150ms ease;
+
+  font-weight: 600;
+  background: var(--mainBg);
+  color: var(--white);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: 1px solid white;
 }
 
-.proceed-play {
-  color: var(--iconDarker);
-}
-
-/* #start:hover {
-  font-size: 1.5rem;
-} */
-
-#start:hover .proceed-play {
-  color: var(--compBg);
-}
-
-.start-btn:hover .fa-play,
-.pause-btn:hover .fa-pause {
-  color: var(--compBg);
-}
-
-.fa-play,
-.fa-pause {
-  font-size: 2rem;
-  color: var(--iconDarker);
-}
-
-.fa-play:hover,
-.fa-pause:hover {
-  font-size: 2rem;
-  color: var(--compBg);
-}
 
 .settings-btn {
   position: absolute;
@@ -483,14 +481,16 @@ h3 {
   width: 3rem;
   height: 3rem;
   border: none;
-  background: transparent;
+  background: none;
   cursor: pointer;
   font-size: 2rem;
-  color: var(--compBg);
+  color: var(--white);
+  border-radius: 1rem;
 }
 
 .settings-btn:hover {
   font-size: 2.2rem;
+
 }
 
 
@@ -504,12 +504,16 @@ h4 {
 .paused {
   display: none;
   width: fit-content;
-  position: relative;
-  margin: 0 auto;
-  background: var(--mainText);
-  padding: 1rem;
-  top: -1rem;
-  font-weight: 700;
+    position: absolute;
+    margin: 0 auto;
+    background: var(--black);
+    color: var(--white);
+    padding: 3rem;
+    border: 5px solid var(--white);
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: 700;
+    font-size: 1.8rem;
 }
 
 @media (min-width: 1000px) {

@@ -49,6 +49,7 @@ showSavedWorkouts()
 function addPremadeWorkouts() {
   premadeBtn.style.display = "none"
   workoutArr.push({"Six pack maker":{"prep":5,"workout":30,"rest":30,"reps":3,"sets":4,"recovery":70}},{"Tabata":{"prep":15,"workout":25,"rest":20,"reps":4,"sets":3,"recovery":30}},{"Easy Tabata":{"prep":15,"workout":25,"rest":20,"reps":4,"sets":3,"recovery":30}})
+  localStorage.setItem("savedWorkouts", JSON.stringify(workoutArr))
   showSavedWorkouts()
 
 }
@@ -287,13 +288,13 @@ function secondsToMinutes(seconds) {
     startedWorkout = "started";
     const phaseDisplay = document.getElementById("phase");
     const progressDiv = document.querySelector(".progress-bar");
-  
+    coloringFunc()
     timer = setInterval(function() {
       timeRemaining--;
       remainingWorkoutTime--;
       progressBar.value = 100 - (timeRemaining / setup[currentPhase]) * 100;
-      progressDiv.style.background = `radial-gradient(closest-side, var(--textDarker) 95%, transparent 80% 100%),
-        conic-gradient(var(--iconDarker) ${progressBar.value}%, var(--compBg) 0)`;
+      progressDiv.style.background = `radial-gradient(closest-side, var(--mainBg) 80%, transparent 81% 100%),
+        conic-gradient(var(--black) ${progressBar.value}%, var(--white) 0)`;
       playSound();
       
       if (timeRemaining <= 0) {
@@ -318,7 +319,8 @@ function secondsToMinutes(seconds) {
               startedWorkout = "finished";
               startBtn.disabled = true;
               pauseBtn.disabled = true;
-  
+              startWorkout.style.color = "var(--black)"
+              pauseWorkout.style.color = "var(--black)"
               setTimeout(function() {
                 if (toggleSound) {
                   completeSound.play();
@@ -354,7 +356,8 @@ let timerState;
 
 function pauseTimer() {
   paused.style.display = "block";
-
+  pauseWorkout.style.color = "red"
+  startWorkout.style.color = "var(--black)"
   if (startedWorkout === "stopped") {
     return;
   } else {
@@ -385,7 +388,7 @@ function resumeTimer() {
 
 proceedBtn.addEventListener('click', function() {
   timerMenu.style.display = "none";
-  counter.style.display = "block";
+  counter.style.display = "flex";
 });
 
 
@@ -428,3 +431,11 @@ pauseWorkout.addEventListener('click', pauseTimer);
 settingsBtn.addEventListener('click', function() {
     window.location.reload();
 });
+
+function coloringFunc() {
+  if (startedWorkout === "started") {
+    startWorkout.style.color = "green"
+    pauseWorkout.style.color = "var(--black)"
+  }
+
+}
