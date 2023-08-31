@@ -7,6 +7,8 @@
   --black: #000000 ;
   --white: #ffffff;
 
+
+  --timer-width: 95%;
 }
 
 * {
@@ -41,6 +43,7 @@ h1 {
 h5 {
   color: var(--white);
   font-size: 1rem;
+  margin-top: 1rem;
   text-align: center;
   text-decoration: overline;
 }
@@ -175,6 +178,7 @@ button:disabled {
   position: relative;
   overflow: hidden;
   background: var(--mainBgLight);
+  /* border-bottom: 4rem solid var(--mainBg); */
 
 }
 
@@ -369,7 +373,6 @@ section {
 
   padding: 2rem;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
@@ -384,14 +387,13 @@ h3 {
 }
 
 
-
 .progress-bar {
   margin: 0 auto;
   width: 250px;
   height: 250px;
   border-radius: 50%;
   background: 
-  radial-gradient(closest-side, var(--mainBg) 80%, transparent 81% 100%),
+  radial-gradient(closest-side, var(--mainBg) var(--timer-width), transparent var(--timer-width) 100%),
   conic-gradient(var(--white) 0%, var(--white) 0);
   position: relative;
 }
