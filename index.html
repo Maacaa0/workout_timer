@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workout Timer</title>
+    <link rel="icon" type="image/x-icon" href="gym.svg">
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -24,32 +25,32 @@
         <div class="absolute">
         <button id="start" class="start">PROCEED <i class="fa-solid fa-play proceed-play"></i></button>
         <button id="toggleSettings" class="toggle-selection-container-btn">settings <i id="chevronUp" class="fa-solid fa-chevron-up"></i></button>
-        <div class="selection-container">
-            <div class="selection-container_top"> 
+            <div class="selection-container">
+                <div class="selection-container_top"> 
                     <i class="fa-solid fa-gear"></i>
                     <p class="selection-container_top_text">workout setup</p>
-            </div>
-
-            <div id="settings" class="selection-container-bottom">
-                <div class="sound_saved_wrapper">
-                    <button id="soundsToggle" class="sounds-toggle"><i id="soundIcon" class="fa-solid fa-volume-high"></i></button>
-
-                    <div class="selection-container_saved">
-                        <button id="savedWorkouts" class="saved_workouts">
-                            SAVED WORKOUTS
-                        </button>
-                    </div>
                 </div>
 
-                <h5 id="workoutName">DEFAULT WORKOUT</h5>
+                <div id="settings" class="selection-container-bottom">
+                    <div class="sound_saved_wrapper">
+                        <button id="soundsToggle" class="sounds-toggle"><i id="soundIcon" class="fa-solid fa-volume-high"></i></button>
 
-                <div class="selection">
-                    <p class="left_text">preparation</p>
-                    <div class="time_container">
-                        <button name="prep" class="time-btn decrement"><i class="fa-regular fa-square-minus"></i></button>
-                        <p class="right_text"><span id="prep"></span></p>
-                        <button name="prep" class="time-btn increment"><i class="fa-regular fa-square-plus"></i></button>
+                        <div class="selection-container_saved">
+                            <button id="savedWorkouts" class="saved_workouts">
+                            SAVED WORKOUTS
+                            </button>
+                        </div>
                     </div>
+
+                    <h5 id="workoutName">DEFAULT WORKOUT</h5>
+
+                    <div class="selection">
+                        <p class="left_text">preparation</p>
+                        <div class="time_container">
+                            <button name="prep" class="time-btn decrement"><i class="fa-regular fa-square-minus"></i></button>
+                            <p class="right_text"><span id="prep"></span></p>
+                            <button name="prep" class="time-btn increment"><i class="fa-regular fa-square-plus"></i></button>
+                        </div>
                 </div>
 
                 <div class="selection">

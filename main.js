@@ -293,7 +293,7 @@ function secondsToMinutes(seconds) {
       timeRemaining--;
       remainingWorkoutTime--;
       progressBar.value = 100 - (timeRemaining / setup[currentPhase]) * 100;
-      progressDiv.style.background = `radial-gradient(closest-side, var(--mainBg) 80%, transparent 81% 100%),
+      progressDiv.style.background = `radial-gradient(closest-side, var(--mainBg) var(--timer-width), transparent var(--timer-width) 100%),
         conic-gradient(var(--black) ${progressBar.value}%, var(--white) 0)`;
       playSound();
       
