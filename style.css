@@ -121,25 +121,30 @@ li:hover {
   -moz-transition: 150ms ease;
   -ms-transition: 150ms ease;
   -o-transition: 150ms ease;
-  animation: 3s border-color alternate infinite;
-  -webkit-animation: 3s border-color alternate infinite;
+  animation: 1.3s border-color alternate infinite;
+  -webkit-animation: 1.3s border-color alternate infinite;
 }
 
 @keyframes border-color {
   from {
-    border: 3px solid rgb(69, 69, 69);
-    color: rgb(69, 69, 69);
-  }
+    border: 3px solid dimgray;
+    /*color: dimgray;
+    */transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+    -o-transform: scale(1.02);
+}
 
   to {
     border: 3px solid var(--white);
-    color: var(--white);
+    /* color: var(--white); */
   }
 }
 
 
 .start:hover {
-  background: var(--black)
+  background: dimgray
 }
 
 
@@ -175,9 +180,9 @@ button:disabled {
   background: var(--mainBgLight);
   color: var(--white);
   border: none;
-  border-left: 1px solid var(--white);
-  border-right: 1px solid var(--white);
-  border-top: 1px solid var(--white);
+  border-left: 3px solid var(--white);
+  border-right: 3px solid var(--white);
+  border-top: 3px solid var(--white);
   border-radius: 5px 5px 0 0;
   padding: 0.6rem 3rem;
 }
@@ -208,7 +213,7 @@ button:disabled {
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  border: 1px solid white;
+  border: 3px solid var(--white);
 }
 
 .selection-container_top_text {
@@ -244,6 +249,8 @@ button:disabled {
   background: var(--mainBgLight);
   max-height: 20rem;
   padding: 1rem 1.5rem;
+  border-left: 3px solid white;
+  border-right: 3px solid white;
 }
 
 .sounds-toggle {
