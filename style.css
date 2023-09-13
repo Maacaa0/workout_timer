@@ -43,9 +43,9 @@ h1 {
 h5 {
   color: var(--white);
   font-size: 1rem;
-  margin-top: 1rem;
+  margin-top: .5rem;
+  margin-bottom: 1rem;
   text-align: center;
-  text-decoration: overline;
 }
 
 ul {
@@ -111,15 +111,35 @@ li:hover {
   padding: 0.5rem 0.7rem;
   letter-spacing: -0.7px;
   font-size: 1.4rem;
-  font-weight: 400;
-  background: var(--compBg);
+  font-weight: 600;
+  background: var(--mainBg);
   color: var(--white);
   border-radius: 5px;
-  border: 1px solid;
+  /*border: 1px solid white;
+  */transition: 150ms ease;
+  -webkit-transition: 150ms ease;
+  -moz-transition: 150ms ease;
+  -ms-transition: 150ms ease;
+  -o-transition: 150ms ease;
+  animation: 3s border-color alternate infinite;
+  -webkit-animation: 3s border-color alternate infinite;
 }
 
+@keyframes border-color {
+  from {
+    border: 3px solid rgb(69, 69, 69);
+    color: rgb(69, 69, 69);
+  }
+
+  to {
+    border: 3px solid var(--white);
+    color: var(--white);
+  }
+}
+
+
 .start:hover {
-  color: var(--black)
+  background: var(--black)
 }
 
 
@@ -239,12 +259,13 @@ button:disabled {
 
 .saved_workouts {
   font-weight: 600;
-  background: var(--mainBg);
+  background: none;
   color: var(--white);
   border: none;
-  padding: 0.5rem 1rem;
+  /* padding: 0.5rem 1rem; */
   border-radius: 5px;
-  border: 1px solid white;
+  /* border: 1px solid white; */
+  text-decoration: underline;
 }
 
 .saved_workout_container {
@@ -350,14 +371,14 @@ button:disabled {
 
 .save_btn {
   display: block;
-  margin: auto;
+  margin-top: .5rem;
   font-weight: 600;
   background: var(--mainBg);
   color: var(--white);
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 0.3rem 1rem;
   border-radius: 5px;
-  border: 1px solid white;
+  border: 1px solid var(--white);
 }
 
 .save_btn:hover {
@@ -453,28 +474,10 @@ h3 {
 }
 
 .start-btn:hover,
-.pause-btn:hover,
-#start:hover {
+.pause-btn:hover {
   background: var(--white);
   color: var(--compBg);
 }
-
-#start {
-  transition: 150ms ease;
-  -webkit-transition: 150ms ease;
-  -moz-transition: 150ms ease;
-  -ms-transition: 150ms ease;
-  -o-transition: 150ms ease;
-
-  font-weight: 600;
-  background: var(--mainBg);
-  color: var(--white);
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  border: 1px solid white;
-}
-
 
 .settings-btn {
   position: absolute;
