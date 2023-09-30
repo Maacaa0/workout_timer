@@ -246,7 +246,7 @@ function secondsToMinutes(seconds) {
   const beepSound = new Audio("audio/Beep-1.mp3");
   const startBeepSound = new Audio("audio/Beep-3.mp3");
 
-  const blankSound = new Audio("audio/blank.mp3");
+  // const blankSound = new Audio("audio/blank.mp3");
   
   let workoutPlay = true;
   let restPlay = true;
@@ -254,11 +254,11 @@ function secondsToMinutes(seconds) {
   function playSound() {
     const secondsRemaining = Math.floor(timeRemaining);
     
-    // PLAY BLANK SOUND FILE TO KEEP SCREEN ON after selected seconds below
-    const restoreDisplayAfter = 30
-    if (secondsRemaining % restoreDisplayAfter + 1 === restoreDisplayAfter) {
-      blankSound.play()
-    }
+    // PLAY BLANK SOUND FILE TO KEEP SCREEN ON after selected seconds below (stopped working)
+    // const restoreDisplayAfter = 20
+    // if (secondsRemaining % restoreDisplayAfter + 1 === restoreDisplayAfter) {
+    //   blankSound.play()
+    // }
     
     if (toggleSound) {
       if (secondsRemaining > 0 && secondsRemaining < 4) {
@@ -391,7 +391,6 @@ proceedBtn.addEventListener('click', function() {
   counter.style.display = "flex";
 });
 
-
 const startWorkout = document.getElementById("startBtn");
 const pauseWorkout = document.getElementById("pauseBtn");
 const settingsBtn = document.getElementById("settingsBtn");
@@ -409,8 +408,9 @@ function proceed() {
     startBeepSound.pause();
     completeSound.play();
     completeSound.pause();
-    blankSound.play();
-    blankSound.pause()
+    
+    // blankSound.play();
+    // blankSound.pause()
 }
 
 

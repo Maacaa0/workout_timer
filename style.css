@@ -26,7 +26,7 @@ body {
 main {
   width: 100%;
   min-width: 20rem;
-  min-height: 100vh;
+  min-height: 100dvh;
   background: var(--mainBg);
   padding: 1rem 1.5rem;
 }
@@ -386,17 +386,22 @@ button:disabled {
   padding: 0.3rem 1rem;
   border-radius: 5px;
   border: 1px solid var(--white);
+  transition: 500ms ease;
+  -webkit-transition: 500ms ease;
+  -moz-transition: 500ms ease;
+  -ms-transition: 500ms ease;
+  -o-transition: 500ms ease;
 }
 
 .save_btn:hover {
-  font-weight: 700;
+  letter-spacing: .1rem;
 }
 
 section {
   position: relative;
   display: none;
   width: 100%;
-  min-height: 100dvh;
+  min-height: 100vh;
   background: var(--mainBg) ;
 
   padding: 2rem;
